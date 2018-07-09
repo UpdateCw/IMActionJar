@@ -1,0 +1,20 @@
+[2018-07-05 17:26:24,206]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5d22bbb7: startup date [Thu Jul 05 17:26:24 CST 2018]; root of context hierarchy   
+[2018-07-05 17:26:24,250]-[INFO]:Loading XML bean definitions from class path resource [com/amt/analyse/config/spring-bean.xml]   
+[2018-07-05 17:26:56,203]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5d22bbb7: startup date [Thu Jul 05 17:26:56 CST 2018]; root of context hierarchy   
+[2018-07-05 17:26:56,249]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-05 17:26:56,453]-[WARN]:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tncentIMConfig' defined in class path resource [spring-bean.xml]: Invalid destruction signature; nested exception is org.springframework.beans.factory.support.BeanDefinitionValidationException: Couldn't find a destroy method named 'close' on bean with name 'tncentIMConfig'   
+[2018-07-05 17:27:06,435]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@627551fb: startup date [Thu Jul 05 17:27:06 CST 2018]; root of context hierarchy   
+[2018-07-05 17:27:06,500]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-05 17:27:06,683]-[WARN]:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tncentIMConfig' defined in class path resource [spring-bean.xml]: Invalid destruction signature; nested exception is org.springframework.beans.factory.support.BeanDefinitionValidationException: Couldn't find a destroy method named 'close' on bean with name 'tncentIMConfig'   
+[2018-07-05 17:27:41,877]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5d22bbb7: startup date [Thu Jul 05 17:27:41 CST 2018]; root of context hierarchy   
+[2018-07-05 17:27:41,918]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-05 17:43:05,217]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Thu Jul 05 17:43:05 CST 2018]; root of context hierarchy   
+[2018-07-05 17:43:05,259]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-05 17:45:55,648]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Thu Jul 05 17:45:55 CST 2018]; root of context hierarchy   
+[2018-07-05 17:45:55,692]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-05 18:11:04,789]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Thu Jul 05 18:11:04 CST 2018]; root of context hierarchy   
+[2018-07-05 18:11:04,847]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-05 18:28:39,930]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Thu Jul 05 18:28:39 CST 2018]; root of context hierarchy   
+[2018-07-05 18:28:39,975]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-05 18:33:22,300]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Thu Jul 05 18:33:22 CST 2018]; root of context hierarchy   
+[2018-07-05 18:33:22,342]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   

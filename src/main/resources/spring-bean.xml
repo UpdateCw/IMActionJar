@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+       <context:property-placeholder location="classpath*:system.properties"/>
+        <bean id="tncentIMConfig" class="com.zd.im.entity.TencentIMConfig" >
+            <property name="sdkAppid" value="${sdk_appid}"/>
+            <property name="jnisigcheckLibPath" value="${jnisigcheck__path}"/>
+            <property name="defaultImAdminAccount" value="${defaultIm_admin_account}"/>
+        </bean>
+
+        <bean id="iMAddres" class="com.zd.im.entity.IMRequestAddress" >
+            <property name="accountAmport" value="${account_import_address}"/>
+            <property name="multiaccountImport" value="${multiaccount_import_address}"/>
+            <property name="kick" value="${kick_address}"/>
+            <property name="groupOpenHttpSvc" value="${group_open_http_svc_address}"/>
+            <property name="createGroup" value="${create_group_address}"/>
+            <property name="GroupInfo" value="${get_group_info_address}"/>
+            <property name="addGroupMember" value="${add_group_member_address}"/>
+            <property name="deleteGroupMember" value="${delete_group_member_address}"/>
+            <property name="destroyGroup" value="${destroy_group_address}"/>
+            <property name="imPush" value="${im_push_address}"/>
+            <property name="imGetPushReport" value="${im_get_push_report_address}"/>
+            <property name="imSetAttr" value="${im_set_attr_address}"/>
+            <property name="imRemoveAttr" value="${im_remove_attr_address}"/>
+            <property name="imGetAttr" value="${im_get_attr_address}"/>
+            <property name="querystate" value="${querystate_address}"/>
+            <property name="portraitGet" value="${portrait_get_address}"/>
+            <property name="portraitSet" value="${portrait_set_address}"/>
+            <property name="sendMsg" value="${send_msg_address}"/>
+        </bean>
+
+</beans>
