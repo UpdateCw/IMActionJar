@@ -1,4 +1,4 @@
-package com.zd.im.entity;
+package com.zd.im.entity.commonResponse;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

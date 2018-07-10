@@ -63,6 +63,16 @@ public class IMRequestAddress {
     private String imGetPushReport;
 
     /**
+     * 设置应用属性名称
+     */
+    private String imSetAttrName;
+
+    /**
+     * 获取应用属性名称
+     */
+    private String imGetAttrName;
+
+    /**
      * 设置用户属性
      */
     private String imSetAttr;
@@ -98,6 +108,23 @@ public class IMRequestAddress {
     private   String sendMsg;
 
     public IMRequestAddress() {
+    }
+
+
+    public String getImSetAttrName() {
+        return imSetAttrName;
+    }
+
+    public void setImSetAttrName(String imSetAttrName) {
+        this.imSetAttrName = imSetAttrName;
+    }
+
+    public String getImGetAttrName() {
+        return imGetAttrName;
+    }
+
+    public void setImGetAttrName(String imGetAttrName) {
+        this.imGetAttrName = imGetAttrName;
     }
 
     public String getAccountAmport() {

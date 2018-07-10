@@ -1,22 +1,24 @@
 package com.zd.im.helper;
 
 import com.tls.sigcheck.tls_sigcheck;
-import com.zd.im.entity.IMActionResponse;
-import com.zd.im.entity.IMRequestAddress;
+import com.zd.im.entity.commonResponse.IMActionResponse;
 import com.zd.im.entity.TencentIMConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Joiner;
+import com.zd.im.entity.commonResponse.UserAttrsResponse;
 import com.zd.im.imReqEntity.User.User;
 import com.zd.im.imReqEntity.message.Message;
 import com.zd.im.util.HttpClientUtil;
 import com.zd.im.util.JsonUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.omg.CORBA.SystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -67,7 +69,7 @@ public class TencentIMHelper {
      *
      * @param user
      */
-    public void accountImport(User user) {
+    public IMActionResponse accountImport(User user) {
         String url = InitHelper.getInstance().imRequestAddress.getAccountAmport();
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of(
@@ -79,6 +81,7 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("导入'{}'到腾讯云IM失败, response message is: {}", res);
         }
+        return res;
     }
 
     /**
@@ -86,7 +89,7 @@ public class TencentIMHelper {
      *
      * @param accounts 用户名，单个用户名长度不超过 32 字节，单次最多导入100个用户名
      */
-    public void multiaccountImport(String... accounts) {
+    public IMActionResponse multiaccountImport(String... accounts) {
         String url = InitHelper.getInstance().imRequestAddress.getMultiaccountImport();
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of("Accounts", accounts);
@@ -94,30 +97,33 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("批量导入'{}'到腾讯云IM失败, response message is: {}", res);
         }
+        return  res;
     }
 
     /**
      * 单发单聊消息
      */
-    public  void sendMsg(Message message){
+    public  IMActionResponse sendMsg(Message message){
         String url = InitHelper.getInstance().imRequestAddress.getSendMsg();
         String queryString = joiner.join(getDefaultParams());
         IMActionResponse res =  request(url + queryString,  message, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error("单聊消息发送失败, response message is: {}", res);
         }
+        return res;
     }
 
     /**
      * 推送
      */
-   public void imPush(Message message){
+   public IMActionResponse imPush(Message message){
        String url = InitHelper.getInstance().imRequestAddress.getImPush();
        String queryString = joiner.join(getDefaultParams());
        IMActionResponse res =  request(url + queryString,  message, IMActionResponse.class);
        if (!res.isSuccess()) {
            log.error("推送消息发送失败, response message is: {}", res);
        }
+       return res;
    }
 
     /**
@@ -130,7 +136,67 @@ public class TencentIMHelper {
         Map<String, Object> requestBody = ImmutableMap.of("TaskIds", taskIds);
         IMActionResponse res = request(url + queryString, requestBody, IMActionResponse.class);
         if (!res.isSuccess()) {
-            log.error("获取推送报告'{}'失败, response message is: {}", res);
+            log.error("获取推送报告失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 设置应用属性名称
+     * @return
+     */
+    public IMActionResponse imSetAttrName(Map<String,String> attrNames){
+        String url = InitHelper.getInstance().imRequestAddress.getImSetAttrName();
+        String queryString = joiner.join(getDefaultParams());
+        Map<String, Object> requestBody = ImmutableMap.of("AttrNames", attrNames);
+        IMActionResponse res = request(url + queryString, requestBody, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("设置应用属性名称失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 获取应用属性名称
+     * @return
+     */
+    public IMActionResponse imGetAttrName(){
+        String url = InitHelper.getInstance().imRequestAddress.getImGetAttrName();
+        String queryString = joiner.join(getDefaultParams());
+        IMActionResponse res = request(url + queryString, null, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("设置应用属性名称失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 获取用户属性
+     * @param toAccounts
+     * @return
+     */
+    public  IMActionResponse  imGetAttr(String... toAccounts){
+        String url = InitHelper.getInstance().imRequestAddress.getImGetAttr();
+        String queryString = joiner.join(getDefaultParams());
+        Map<String, Object> requestBody = ImmutableMap.of("To_Account", toAccounts);
+        IMActionResponse res = request(url + queryString, requestBody, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("获取用户属性失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 设置用户属性
+     * @param userAttrs
+     */
+    public  IMActionResponse  imSetAttr(List<UserAttrsResponse> userAttrs){
+        String url = InitHelper.getInstance().imRequestAddress.getImSetAttr();
+        String queryString = joiner.join(getDefaultParams());
+        Map<String, Object> requestBody = ImmutableMap.of("UserAttrs", userAttrs);
+        IMActionResponse res = request(url + queryString, requestBody, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("设置用户属性失败, response message is: {}", res);
         }
         return  res;
     }
@@ -176,9 +242,7 @@ public class TencentIMHelper {
     private String requestInvoke(String url, Object params) {
         String json = null;
         try {
-            String obj2Str = JsonUtils.obj2Str(params);
-            log.info("data",obj2Str );
-            json = HttpClientUtil.sendJsonData(url, obj2Str);
+            json = HttpClientUtil.sendJsonData(url, JsonUtils.obj2Str(params));
             log.info("request url {}, the params is: {}", url, objectMapper.writeValueAsString(params));
             log.info("request result is {}",json );
         } catch (Exception e) {
@@ -186,6 +250,7 @@ public class TencentIMHelper {
         }
         return  json;
     }
+
 
     private <T> T toBean(String json, Class<T> cls) {
         try {

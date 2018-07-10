@@ -1,7 +1,10 @@
-package com.zd.im.entity;
+package com.zd.im.entity.commonResponse;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author : cw
@@ -42,8 +45,38 @@ public class    IMActionResponse {
     @JsonProperty("Reports")
     private IMActionReportsResponse reports;
 
+    /**
+     *
+     * @return
+     */
+    @JsonProperty("UserAttrs")
+    private List<UserAttrsResponse> userAttrs;
+
+    /**
+     * 应用属性名称
+     * @return
+     */
+    @JsonProperty("AttrNames")
+    private Map<String,String> attrNames;
+
     public boolean isSuccess() {
         return "OK".equals(actionStatus);
+    }
+
+    public Map<String, String> getAttrNames() {
+        return attrNames;
+    }
+
+    public void setAttrNames(Map<String, String> attrNames) {
+        this.attrNames = attrNames;
+    }
+
+    public List<UserAttrsResponse> getUserAttrs() {
+        return userAttrs;
+    }
+
+    public void setUserAttrs(List<UserAttrsResponse> userAttrs) {
+        this.userAttrs = userAttrs;
     }
 
     public String getActionStatus() {
@@ -85,4 +118,5 @@ public class    IMActionResponse {
     public void setReports(IMActionReportsResponse reports) {
         this.reports = reports;
     }
+
 }

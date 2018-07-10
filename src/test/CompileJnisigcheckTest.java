@@ -1,4 +1,6 @@
 import com.tls.sigcheck.tls_sigcheck;
+import com.zd.im.entity.commonResponse.AttrsResponse;
+import com.zd.im.entity.commonResponse.UserAttrsResponse;
 import com.zd.im.helper.InitHelper;
 import com.zd.im.helper.TencentIMHelper;
 import com.zd.im.imReqEntity.User.User;
@@ -8,7 +10,10 @@ import com.zd.im.imReqEntity.message.MsgContent;
 import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author : cw
@@ -16,11 +21,6 @@ import java.util.ArrayList;
  * 测试
  */
 public class CompileJnisigcheckTest {
-
-    public static void main(String[] args) throws IOException {
-        CompileJnisigcheckTest jnisigcheckTest = new CompileJnisigcheckTest();
-        jnisigcheckTest.helperTest();
-    }
 
     /**
      * 本机导入账号
@@ -55,6 +55,54 @@ public class CompileJnisigcheckTest {
         helper.sendMsg(message);
     }
 
+    /**
+     * 设置用户属性
+     */
+    public void imSetAttr() throws UnsupportedEncodingException {
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        List<UserAttrsResponse> list = new ArrayList<>();
+        UserAttrsResponse userAttrsResponse = new UserAttrsResponse();
+        userAttrsResponse.setToAccount("test13");
+        AttrsResponse attrsResponse = new AttrsResponse();
+        attrsResponse.setCity("成都");
+        attrsResponse.setSex("男");
+        userAttrsResponse.setAttrs(attrsResponse);
+        list.add(userAttrsResponse);
+        helper.imSetAttr(list);
+    }
+
+    /**
+     * 获取用户属性
+     */
+    public void imGetAttr(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        String[] str = {"test13"};
+        helper.imGetAttr(str);
+    }
+
+    /**
+     * 设置属性名称
+     */
+    public void imSetAttrName(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        HashMap<String,String> hashMap = new HashMap<>();
+        hashMap.put("0","sex");
+        hashMap.put("1","city");
+        helper.imSetAttrName(hashMap);
+    }
+
+    /**
+     * 获取属性名称
+     */
+    public void imGetAttrName(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        helper.imGetAttrName();
+    }
+
+    public static void main(String[] args) throws IOException {
+        CompileJnisigcheckTest jnisigcheckTest = new CompileJnisigcheckTest();
+        jnisigcheckTest.imGetAttr();
+    }
     /**
      * 官方测试
      */

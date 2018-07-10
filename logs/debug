@@ -1,56 +1,102 @@
-[2018-07-09 15:19:16,722]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:19:16 CST 2018]; root of context hierarchy   
-[2018-07-09 15:19:16,772]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:25:54,040]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:25:54 CST 2018]; root of context hierarchy   
-[2018-07-09 15:25:54,083]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:27:39,777]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:27:39 CST 2018]; root of context hierarchy   
-[2018-07-09 15:27:39,821]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:28:36,410]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 15:28:36 CST 2018]; root of context hierarchy   
-[2018-07-09 15:28:36,463]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:29:22,026]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:29:22 CST 2018]; root of context hierarchy   
-[2018-07-09 15:29:22,081]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:29:29,531]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:29:29 CST 2018]; root of context hierarchy   
-[2018-07-09 15:29:29,583]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:29:55,382]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:29:55 CST 2018]; root of context hierarchy   
-[2018-07-09 15:29:55,421]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:30:05,140]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 15:30:05 CST 2018]; root of context hierarchy   
-[2018-07-09 15:30:05,202]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:33:44,102]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:33:44 CST 2018]; root of context hierarchy   
-[2018-07-09 15:33:44,147]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:33:50,393]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 15:33:50 CST 2018]; root of context hierarchy   
-[2018-07-09 15:33:50,445]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:34:52,421]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 15:34:52 CST 2018]; root of context hierarchy   
-[2018-07-09 15:34:52,479]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:37:09,784]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 15:37:09 CST 2018]; root of context hierarchy   
-[2018-07-09 15:37:09,849]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:39:45,407]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:39:45 CST 2018]; root of context hierarchy   
-[2018-07-09 15:39:45,450]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:45:06,186]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:45:06 CST 2018]; root of context hierarchy   
-[2018-07-09 15:45:06,229]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:50:16,810]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:50:16 CST 2018]; root of context hierarchy   
-[2018-07-09 15:50:16,850]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:53:21,257]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:53:21 CST 2018]; root of context hierarchy   
-[2018-07-09 15:53:21,300]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:56:36,311]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 15:56:36 CST 2018]; root of context hierarchy   
-[2018-07-09 15:56:36,355]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 15:59:21,921]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 15:59:21 CST 2018]; root of context hierarchy   
-[2018-07-09 15:59:21,984]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:03:51,760]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 16:03:51 CST 2018]; root of context hierarchy   
-[2018-07-09 16:03:51,807]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:04:05,009]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 16:04:05 CST 2018]; root of context hierarchy   
-[2018-07-09 16:04:05,065]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:12:11,732]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 16:12:11 CST 2018]; root of context hierarchy   
-[2018-07-09 16:12:11,793]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:13:01,592]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@25618e91: startup date [Mon Jul 09 16:13:01 CST 2018]; root of context hierarchy   
-[2018-07-09 16:13:01,704]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:13:06,341]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 16:13:06 CST 2018]; root of context hierarchy   
-[2018-07-09 16:13:06,396]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:16:47,756]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 16:16:47 CST 2018]; root of context hierarchy   
-[2018-07-09 16:16:47,818]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:18:02,220]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 16:18:02 CST 2018]; root of context hierarchy   
-[2018-07-09 16:18:02,280]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:19:04,282]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 16:19:04 CST 2018]; root of context hierarchy   
-[2018-07-09 16:19:04,346]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:20:51,127]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Mon Jul 09 16:20:51 CST 2018]; root of context hierarchy   
-[2018-07-09 16:20:51,188]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
-[2018-07-09 16:21:16,248]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Mon Jul 09 16:21:16 CST 2018]; root of context hierarchy   
-[2018-07-09 16:21:16,293]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 09:47:08,215]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 09:47:08 CST 2018]; root of context hierarchy   
+[2018-07-10 09:47:08,264]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 09:48:06,964]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 09:48:06 CST 2018]; root of context hierarchy   
+[2018-07-10 09:48:07,008]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:13:10,983]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:13:10 CST 2018]; root of context hierarchy   
+[2018-07-10 10:13:11,029]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:13:53,295]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:13:53 CST 2018]; root of context hierarchy   
+[2018-07-10 10:13:53,338]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:14:31,258]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:14:31 CST 2018]; root of context hierarchy   
+[2018-07-10 10:14:31,316]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:16:24,385]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:16:24 CST 2018]; root of context hierarchy   
+[2018-07-10 10:16:24,432]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:17:02,514]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 10:17:02 CST 2018]; root of context hierarchy   
+[2018-07-10 10:17:02,575]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:23:33,095]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:23:33 CST 2018]; root of context hierarchy   
+[2018-07-10 10:23:33,143]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:24:12,536]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:24:12 CST 2018]; root of context hierarchy   
+[2018-07-10 10:24:12,578]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:25:41,341]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 10:25:41 CST 2018]; root of context hierarchy   
+[2018-07-10 10:25:41,401]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:26:13,639]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:26:13 CST 2018]; root of context hierarchy   
+[2018-07-10 10:26:13,685]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:37:41,917]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:37:41 CST 2018]; root of context hierarchy   
+[2018-07-10 10:37:41,968]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:38:50,398]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:38:50 CST 2018]; root of context hierarchy   
+[2018-07-10 10:38:50,442]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:39:53,061]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:39:53 CST 2018]; root of context hierarchy   
+[2018-07-10 10:39:53,104]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:46:21,186]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 10:46:21 CST 2018]; root of context hierarchy   
+[2018-07-10 10:46:21,246]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:46:41,298]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 10:46:41 CST 2018]; root of context hierarchy   
+[2018-07-10 10:46:41,358]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:46:52,221]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:46:52 CST 2018]; root of context hierarchy   
+[2018-07-10 10:46:52,269]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:49:42,718]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:49:42 CST 2018]; root of context hierarchy   
+[2018-07-10 10:49:42,762]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:49:55,248]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:49:55 CST 2018]; root of context hierarchy   
+[2018-07-10 10:49:55,297]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:50:58,295]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:50:58 CST 2018]; root of context hierarchy   
+[2018-07-10 10:50:58,340]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:51:18,809]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:51:18 CST 2018]; root of context hierarchy   
+[2018-07-10 10:51:18,852]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:51:31,591]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:51:31 CST 2018]; root of context hierarchy   
+[2018-07-10 10:51:31,635]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:51:37,997]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 10:51:37 CST 2018]; root of context hierarchy   
+[2018-07-10 10:51:38,060]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:57:29,521]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 10:57:29 CST 2018]; root of context hierarchy   
+[2018-07-10 10:57:29,580]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:57:42,015]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:57:42 CST 2018]; root of context hierarchy   
+[2018-07-10 10:57:42,064]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:58:01,983]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:58:01 CST 2018]; root of context hierarchy   
+[2018-07-10 10:58:02,029]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:58:08,418]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:58:08 CST 2018]; root of context hierarchy   
+[2018-07-10 10:58:08,467]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:58:37,824]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:58:37 CST 2018]; root of context hierarchy   
+[2018-07-10 10:58:37,869]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:58:49,363]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:58:49 CST 2018]; root of context hierarchy   
+[2018-07-10 10:58:49,405]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:59:33,826]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:59:33 CST 2018]; root of context hierarchy   
+[2018-07-10 10:59:33,873]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 10:59:57,689]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 10:59:57 CST 2018]; root of context hierarchy   
+[2018-07-10 10:59:57,734]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:01:21,906]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:01:21 CST 2018]; root of context hierarchy   
+[2018-07-10 11:01:21,954]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:06:57,850]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:06:57 CST 2018]; root of context hierarchy   
+[2018-07-10 11:06:57,902]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:08:19,302]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:08:19 CST 2018]; root of context hierarchy   
+[2018-07-10 11:08:19,346]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:10:51,412]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:10:51 CST 2018]; root of context hierarchy   
+[2018-07-10 11:10:51,458]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:11:22,497]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:11:22 CST 2018]; root of context hierarchy   
+[2018-07-10 11:11:22,544]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:12:06,318]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:12:06 CST 2018]; root of context hierarchy   
+[2018-07-10 11:12:06,363]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:17:46,632]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:17:46 CST 2018]; root of context hierarchy   
+[2018-07-10 11:17:46,676]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:18:06,298]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:18:06 CST 2018]; root of context hierarchy   
+[2018-07-10 11:18:06,342]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:26:02,594]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:26:02 CST 2018]; root of context hierarchy   
+[2018-07-10 11:26:02,639]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:29:23,459]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 11:29:23 CST 2018]; root of context hierarchy   
+[2018-07-10 11:29:23,520]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:33:36,734]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 11:33:36 CST 2018]; root of context hierarchy   
+[2018-07-10 11:33:36,794]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:41:28,562]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 11:41:28 CST 2018]; root of context hierarchy   
+[2018-07-10 11:41:28,635]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:44:08,394]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:44:08 CST 2018]; root of context hierarchy   
+[2018-07-10 11:44:08,441]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:44:33,685]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2758fe70: startup date [Tue Jul 10 11:44:33 CST 2018]; root of context hierarchy   
+[2018-07-10 11:44:33,745]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:47:12,832]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:47:12 CST 2018]; root of context hierarchy   
+[2018-07-10 11:47:12,877]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:47:37,694]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:47:37 CST 2018]; root of context hierarchy   
+[2018-07-10 11:47:37,739]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:47:45,521]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:47:45 CST 2018]; root of context hierarchy   
+[2018-07-10 11:47:45,567]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:47:55,671]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:47:55 CST 2018]; root of context hierarchy   
+[2018-07-10 11:47:55,717]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:48:04,057]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:48:04 CST 2018]; root of context hierarchy   
+[2018-07-10 11:48:04,106]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   
+[2018-07-10 11:48:43,840]-[INFO]:Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41a4555e: startup date [Tue Jul 10 11:48:43 CST 2018]; root of context hierarchy   
+[2018-07-10 11:48:43,885]-[INFO]:Loading XML bean definitions from class path resource [spring-bean.xml]   

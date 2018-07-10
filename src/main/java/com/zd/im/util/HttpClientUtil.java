@@ -102,7 +102,7 @@ public class HttpClientUtil {
         HttpResponse response = httpClient.execute(post);
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
             HttpEntity entity = response.getEntity();
-            String resutlStr = EntityUtils.toString(entity);
+            String resutlStr = EntityUtils.toString(entity, "UTF-8");
             return resutlStr;
         }
         return null;

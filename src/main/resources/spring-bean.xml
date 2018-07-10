@@ -24,6 +24,8 @@
             <property name="destroyGroup" value="${destroy_group_address}"/>
             <property name="imPush" value="${im_push_address}"/>
             <property name="imGetPushReport" value="${im_get_push_report_address}"/>
+            <property name="imSetAttrName" value="${im_set_attr_name_address}"/>
+            <property name="imGetAttrName" value="${im_get_attr_name_address}"/>
             <property name="imSetAttr" value="${im_set_attr_address}"/>
             <property name="imRemoveAttr" value="${im_remove_attr_address}"/>
             <property name="imGetAttr" value="${im_get_attr_address}"/>

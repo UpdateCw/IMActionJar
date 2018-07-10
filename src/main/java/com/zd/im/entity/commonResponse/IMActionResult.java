@@ -1,4 +1,4 @@
-package com.zd.im.entity;
+package com.zd.im.entity.commonResponse;
 
 import java.util.Map;
 
