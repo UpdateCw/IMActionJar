@@ -17,6 +17,17 @@ account_import_address = https://console.tim.qq.com/v4/im_open_login_svc/account
 multiaccount_import_address = https://console.tim.qq.com/v4/im_open_login_svc/multiaccount_import?
 # 单发单聊消息
 send_msg_address = https://console.tim.qq.com/v4/openim/sendmsg?
-
+# 推送
+im_push_address = https://console.tim.qq.com/v4/openim/im_push?
+# 获取推送报告
+im_get_push_report_address = https://console.tim.qq.com/v4/openim/im_get_push_report?
+# 设置应用属性名称
+im_set_attr_name_address = https://console.tim.qq.com/v4/openim/im_set_attr_name?
+# 获取应用属性名称
+im_get_attr_name_address = https://console.tim.qq.com/v4/openim/im_get_attr_name?
+# 获取用户属性
+im_get_attr_address = https://console.tim.qq.com/v4/openim/im_get_attr?
+# 设置用户属性
+im_set_attr_address = https://console.tim.qq.com/v4/openim/im_set_attr?
 
 后续持续更新。。
