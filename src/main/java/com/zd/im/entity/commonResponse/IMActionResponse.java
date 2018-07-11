@@ -40,6 +40,30 @@ public class    IMActionResponse {
     private Integer msgTime;
 
     /**
+     * 群组总数
+     */
+    @JsonProperty("TotalCount")
+    private Integer totalCount;
+
+    /**
+     * 分页拉取标志
+     */
+    @JsonProperty("Next")
+    private Integer next;
+
+    /**
+     * 获取到的群组 ID 的集合。
+     */
+    @JsonProperty("GroupIdList")
+    private List<Map<String,String>> groupIdList;
+
+    /**
+     * 创建成功之后的群 ID，由 IM 云后台分配。
+     */
+    @JsonProperty("GroupId")
+    private String groupId;
+
+    /**
      * 推送任务报告列表。
      */
     @JsonProperty("Reports")
@@ -61,6 +85,38 @@ public class    IMActionResponse {
 
     public boolean isSuccess() {
         return "OK".equals(actionStatus);
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public Integer getNext() {
+        return next;
+    }
+
+    public void setNext(Integer next) {
+        this.next = next;
+    }
+
+    public List<Map<String, String>> getGroupIdList() {
+        return groupIdList;
+    }
+
+    public void setGroupIdList(List<Map<String, String>> groupIdList) {
+        this.groupIdList = groupIdList;
     }
 
     public Map<String, String> getAttrNames() {

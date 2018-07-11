@@ -5,6 +5,7 @@ import com.zd.im.entity.IMRequestAddress;
 import com.zd.im.entity.TencentIMConfig;
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,6 +27,8 @@ public class InitHelper {
 
     public static IMRequestAddress imRequestAddress;
 
+    public static StringRedisTemplate stringRedisTemplate;
+
     private InitHelper(){}
 
     public static  InitHelper getInstance(){
@@ -35,6 +38,7 @@ public class InitHelper {
                         AbstractXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/spring-bean.xml");
                         config = (TencentIMConfig)appContext.getBean("tncentIMConfig");
                         imRequestAddress = (IMRequestAddress)appContext.getBean("iMAddres");
+                        stringRedisTemplate = (StringRedisTemplate) appContext.getBean("redisTemplate");
                         INITHELPER = new InitHelper();
                     }
             }

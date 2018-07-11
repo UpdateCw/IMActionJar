@@ -1,9 +1,12 @@
 import com.tls.sigcheck.tls_sigcheck;
 import com.zd.im.entity.commonResponse.AttrsResponse;
+import com.zd.im.entity.commonResponse.UserAttrsRemoveResponse;
 import com.zd.im.entity.commonResponse.UserAttrsResponse;
 import com.zd.im.helper.InitHelper;
 import com.zd.im.helper.TencentIMHelper;
-import com.zd.im.imReqEntity.User.User;
+import com.zd.im.imReqEntity.group.Group;
+import com.zd.im.imReqEntity.group.GroupsQuery;
+import com.zd.im.imReqEntity.user.User;
 import com.zd.im.imReqEntity.message.Message;
 import com.zd.im.imReqEntity.message.MsgBody;
 import com.zd.im.imReqEntity.message.MsgContent;
@@ -99,9 +102,73 @@ public class CompileJnisigcheckTest {
         helper.imGetAttrName();
     }
 
+    /**
+     * 删除用户属性
+     */
+    public void imRemoveAttr(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        List<UserAttrsRemoveResponse> list = new ArrayList<>();
+        UserAttrsRemoveResponse userAttrsResponse = new UserAttrsRemoveResponse();
+        userAttrsResponse.setToAccount("test13");
+        List<String> stringList = new ArrayList<>();
+        stringList.add("sex");
+        stringList.add("city");
+        userAttrsResponse.setAttrs(stringList);
+        list.add(userAttrsResponse);
+        helper.imRemoveAttr(list);
+    }
+
+    /**
+     * 获取APP中的所有群组
+     */
+    public void groupOpenHttpSvc(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        GroupsQuery groups = new GroupsQuery();
+        helper.groupOpenHttpSvc(groups);
+    }
+
+    /**
+     * 获取群组详细资料
+     */
+    public void createGroup(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        Group groups = new Group();
+        groups.setOwnerAccount("test13");
+        groups.setType("Public");
+        groups.setName("持续更新");
+        helper.createGroup(groups);
+    }
+
+    /**
+     * 根据账号生成签名
+     */
+    public void getIMAdminUsersig(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        String identifier = "13981919959";
+        helper.getIMAdminUsersig(identifier);
+    }
+
+    /**
+     * 根据账号生成签名
+     */
+    public void genUsersig(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        String identifier = "13981919959";
+        helper.genUsersig(identifier);
+    }
+
+    /**
+     * 获取群组详细资料
+     */
+    public void getGroupInfo(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        String[] str = {"@TGS#23MBQ4JFV"};
+        helper.getGroupInfo(str);
+    }
+
     public static void main(String[] args) throws IOException {
         CompileJnisigcheckTest jnisigcheckTest = new CompileJnisigcheckTest();
-        jnisigcheckTest.imGetAttr();
+        jnisigcheckTest.genUsersig();
     }
     /**
      * 官方测试

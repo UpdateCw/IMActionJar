@@ -1,4 +1,4 @@
-package com.zd.im.imReqEntity.User;
+package com.zd.im.imReqEntity.user;
 
 /**
  * @author : cw

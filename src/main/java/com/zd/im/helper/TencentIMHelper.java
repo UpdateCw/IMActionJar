@@ -5,8 +5,11 @@ import com.zd.im.entity.commonResponse.IMActionResponse;
 import com.zd.im.entity.TencentIMConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Joiner;
+import com.zd.im.entity.commonResponse.UserAttrsRemoveResponse;
 import com.zd.im.entity.commonResponse.UserAttrsResponse;
-import com.zd.im.imReqEntity.User.User;
+import com.zd.im.imReqEntity.group.Group;
+import com.zd.im.imReqEntity.group.GroupsQuery;
+import com.zd.im.imReqEntity.user.User;
 import com.zd.im.imReqEntity.message.Message;
 import com.zd.im.util.HttpClientUtil;
 import com.zd.im.util.JsonUtils;
@@ -15,8 +18,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +36,8 @@ public class TencentIMHelper {
 
     private TencentIMConfig config;
     private ObjectMapper objectMapper;
+
+
 
     /**
      * 封装请求参数
@@ -51,19 +56,19 @@ public class TencentIMHelper {
      * @return
      */
     public String genUsersig(String identifier) {
+        String path = TencentIMHelper.class.getResource("/").toString();
         tls_sigcheck tlsSigcheck = new tls_sigcheck();
-        tlsSigcheck.loadJniLib(config.getJnisigcheckLibPath());
+        tlsSigcheck.loadJniLib(System.getProperty("user.dir") + config.getJnisigcheckLibPath());
         int ret = tlsSigcheck.tls_gen_signature_ex2(config.getSdkAppid(), identifier, config.getPrivateKey());
         if (0 != ret) {
             log.error("ret: {}, errMsg:{}", ret, tlsSigcheck.getErrMsg());
         } else {
             String usersig = tlsSigcheck.getSig();
-            log.debug("identifier '{}' take usersig is {}", identifier, usersig);
+            log.info("identifier '{}' take usersig is {}", identifier, usersig);
             return usersig;
         }
         return  null;
     }
-
     /**
      * 导入账号
      *
@@ -202,6 +207,66 @@ public class TencentIMHelper {
     }
 
     /**
+     * 删除用户属性
+     * @param userAttrs
+     */
+    public  IMActionResponse  imRemoveAttr(List<UserAttrsRemoveResponse> userAttrs){
+        String url = InitHelper.getInstance().imRequestAddress.getImRemoveAttr();
+        String queryString = joiner.join(getDefaultParams());
+        Map<String, Object> requestBody = ImmutableMap.of("UserAttrs", userAttrs);
+        IMActionResponse res = request(url + queryString, requestBody, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("删除用户属性失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 获取APP中的所有群组
+     * @param groups
+     */
+    public  IMActionResponse  groupOpenHttpSvc(GroupsQuery groups){
+        String url = InitHelper.getInstance().imRequestAddress.getGroupOpenHttpSvc();
+        String queryString = joiner.join(getDefaultParams());
+        IMActionResponse res = request(url + queryString, groups, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("获取APP中的所有群组失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 创建群组 公开群人数：2000
+     * @param groups
+     */
+    public  IMActionResponse  createGroup(Group groups){
+        String url = InitHelper.getInstance().imRequestAddress.getCreateGroup();
+        String queryString = joiner.join(getDefaultParams());
+        IMActionResponse res = request(url + queryString, groups, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("创建群组失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 获取群组详细资料
+     * @param groups
+     */
+    public  IMActionResponse  getGroupInfo(String... groups){
+        String url = InitHelper.getInstance().imRequestAddress.getGroupInfo();
+        String queryString = joiner.join(getDefaultParams());
+        Map<String, Object> requestBody = ImmutableMap.of("GroupIdList", groups);
+        IMActionResponse res = request(url + queryString, requestBody, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("获取群组详细资料失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+
+
+    /**
      * 获取默认设置的im admin 账号的usersig
      *
      * @return
@@ -272,19 +337,31 @@ public class TencentIMHelper {
         String usersig = _getIMAdminUsersig(identifier);
         if (StringUtils.isEmpty(usersig)) {
             usersig = genUsersig(identifier);
-            //    cacheIMAdminUsersig(identifier, usersig);
+               cacheIMAdminUsersig(identifier, usersig);
         }
         return usersig;
     }
 
+    /**
+     * 缓存identifier，usersig
+     * @param identifier
+     * @param usersig
+     */
+    private void cacheIMAdminUsersig(String identifier, String usersig) {
+        InitHelper.stringRedisTemplate.opsForValue().set(identifier,usersig);
+    }
     /**
      * 缓存中取账号usersig
      * @param identifier
      * @return
      */
     private String _getIMAdminUsersig(String identifier) {
-        //todo
-        return null;
+        return  InitHelper.stringRedisTemplate.opsForValue().get(identifier);
     }
-
+    /**
+     * 删除缓存中的账号 usersig
+     */
+    private void _delMAdminUsersig(String identifier) {
+        InitHelper.stringRedisTemplate.delete(identifier);
+    }
 }
