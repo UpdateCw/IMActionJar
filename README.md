@@ -30,4 +30,13 @@ im_get_attr_address = https://console.tim.qq.com/v4/openim/im_get_attr?
 # 设置用户属性
 im_set_attr_address = https://console.tim.qq.com/v4/openim/im_set_attr?
 
-后续持续更新。。
+# 群组功能
+# 获取APP中的所有群组
+group_open_http_svc_address = https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?
+# 创建群组
+create_group_address = https://console.tim.qq.com/v4/group_open_http_svc/create_group?
+# 获取群组详细资料
+get_group_info_address = https://console.tim.qq.com/v4/group_open_http_svc/get_group_info?
+
+
+将其identifier usersig 存入Redis。
