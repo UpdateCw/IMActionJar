@@ -11,6 +11,8 @@
 * Golang Server SDK（敬请期待）。
 
 现已完成：
+# 缓存identifier usersig 存入Redis。
+
 # 独立模式账号导入
 account_import_address = https://console.tim.qq.com/v4/im_open_login_svc/account_import?
 # 独立模式账户批量导入
@@ -37,6 +39,11 @@ group_open_http_svc_address = https://console.tim.qq.com/v4/group_open_http_svc/
 create_group_address = https://console.tim.qq.com/v4/group_open_http_svc/create_group?
 # 获取群组详细资料
 get_group_info_address = https://console.tim.qq.com/v4/group_open_http_svc/get_group_info?
+# 增加群组成员
+add_group_member_address = https://console.tim.qq.com/v4/group_open_http_svc/add_group_member?
+# 删除群组成员
+delete_group_member_address = https://console.tim.qq.com/v4/group_open_http_svc/delete_group_member?
+# 解散群组
+destroy_group_address = https://console.tim.qq.com/v4/group_open_http_svc/destroy_group?
 
-
-将其identifier usersig 存入Redis。
+持续更新...
