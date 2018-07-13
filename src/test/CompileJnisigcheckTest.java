@@ -4,7 +4,9 @@ import com.zd.im.entity.commonResponse.UserAttrsRemoveResponse;
 import com.zd.im.entity.commonResponse.UserAttrsResponse;
 import com.zd.im.helper.InitHelper;
 import com.zd.im.helper.TencentIMHelper;
+import com.zd.im.imReqEntity.group.AppMember;
 import com.zd.im.imReqEntity.group.Group;
+import com.zd.im.imReqEntity.group.GroupMember;
 import com.zd.im.imReqEntity.group.GroupsQuery;
 import com.zd.im.imReqEntity.user.User;
 import com.zd.im.imReqEntity.message.Message;
@@ -31,7 +33,7 @@ public class CompileJnisigcheckTest {
      */
    public  void helperTest() throws IOException {
        TencentIMHelper helper = InitHelper.getInstance().init();
-       helper.accountImport(new User("testadmin","浪","http://www.qq.com",0));
+       helper.accountImport(new User("13981919959","浪","http://www.qq.com",0));
 
     }
     /**
@@ -79,7 +81,7 @@ public class CompileJnisigcheckTest {
      */
     public void imGetAttr(){
         TencentIMHelper helper = InitHelper.getInstance().init();
-        String[] str = {"test13"};
+        String[] str = {"testadmin"};
         helper.imGetAttr(str);
     }
 
@@ -162,13 +164,41 @@ public class CompileJnisigcheckTest {
      */
     public void getGroupInfo(){
         TencentIMHelper helper = InitHelper.getInstance().init();
-        String[] str = {"@TGS#23MBQ4JFV"};
+        String[] str = {"@TGS#2FTMZ7JFI"};
         helper.getGroupInfo(str);
+    }
+
+    /**
+     * 添加群成员
+     */
+    public void addGroupMember(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        GroupMember member = new GroupMember();
+        member.setGroupId("@TGS#2FTMZ7JFI");
+        List<AppMember> appMembers = new ArrayList<>();
+        AppMember appMember = new AppMember();
+        appMember.setMemberAccount("13981919959");
+        appMembers.add(appMember);
+        member.setMemberList(appMembers);
+        helper.addGroupMember(member);
+    }
+
+    /**
+     * 删除群成员
+     */
+    public void delGroupMember(){
+        TencentIMHelper helper = InitHelper.getInstance().init();
+        GroupMember member = new GroupMember();
+        member.setGroupId("@TGS#2FTMZ7JFI");
+        List<String> strings = new ArrayList<>();
+        strings.add("13981919959");
+        member.setMemberToDelAccount(strings);
+        helper.deleteGroupMember(member);
     }
 
     public static void main(String[] args) throws IOException {
         CompileJnisigcheckTest jnisigcheckTest = new CompileJnisigcheckTest();
-        jnisigcheckTest.genUsersig();
+        jnisigcheckTest.addGroupMember();
     }
     /**
      * 官方测试

@@ -8,6 +8,7 @@ import com.google.common.base.Joiner;
 import com.zd.im.entity.commonResponse.UserAttrsRemoveResponse;
 import com.zd.im.entity.commonResponse.UserAttrsResponse;
 import com.zd.im.imReqEntity.group.Group;
+import com.zd.im.imReqEntity.group.GroupMember;
 import com.zd.im.imReqEntity.group.GroupsQuery;
 import com.zd.im.imReqEntity.user.User;
 import com.zd.im.imReqEntity.message.Message;
@@ -56,9 +57,8 @@ public class TencentIMHelper {
      * @return
      */
     public String genUsersig(String identifier) {
-        String path = TencentIMHelper.class.getResource("/").toString();
         tls_sigcheck tlsSigcheck = new tls_sigcheck();
-        tlsSigcheck.loadJniLib(System.getProperty("user.dir") + config.getJnisigcheckLibPath());
+        tlsSigcheck.loadJniLib(System.getProperty("user.dir") +config.getJnisigcheckLibPath());
         int ret = tlsSigcheck.tls_gen_signature_ex2(config.getSdkAppid(), identifier, config.getPrivateKey());
         if (0 != ret) {
             log.error("ret: {}, errMsg:{}", ret, tlsSigcheck.getErrMsg());
@@ -260,6 +260,48 @@ public class TencentIMHelper {
         IMActionResponse res = request(url + queryString, requestBody, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error("获取群组详细资料失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 增加群组成员
+     * @param groupMember
+     */
+    public  IMActionResponse  addGroupMember(GroupMember groupMember){
+        String url = InitHelper.getInstance().imRequestAddress.getAddGroupMember();
+        String queryString = joiner.join(getDefaultParams());
+        IMActionResponse res = request(url + queryString, groupMember, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error(" 增加群组成员失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 删除群组成员
+     * @param groupMember
+     */
+    public  IMActionResponse  deleteGroupMember(GroupMember groupMember){
+        String url = InitHelper.getInstance().imRequestAddress.getDeleteGroupMember();
+        String queryString = joiner.join(getDefaultParams());
+        IMActionResponse res = request(url + queryString, groupMember, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error(" 删除群组成员失败, response message is: {}", res);
+        }
+        return  res;
+    }
+
+    /**
+     * 解散群组成员
+     * @param groupId
+     */
+    public  IMActionResponse  destroyGroup(String groupId){
+        String url = InitHelper.getInstance().imRequestAddress.getDestroyGroup();
+        String queryString = joiner.join(getDefaultParams());
+        IMActionResponse res = request(url + queryString, groupId, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("解散群组成员失败, response message is: {}", res);
         }
         return  res;
     }

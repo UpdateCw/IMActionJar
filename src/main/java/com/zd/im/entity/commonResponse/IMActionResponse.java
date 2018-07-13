@@ -83,8 +83,38 @@ public class    IMActionResponse {
     @JsonProperty("AttrNames")
     private Map<String,String> attrNames;
 
+    /**
+     * 返回结果为群组信息数组
+     * @return
+     */
+    @JsonProperty("GroupInfo")
+    private List<GroupInfoResponse> groupInfo;
+
+    /**
+     * 返回成员信息
+     * @return
+     */
+    @JsonProperty("MemberList")
+    private List<MemberResponse> memberList;
+
     public boolean isSuccess() {
         return "OK".equals(actionStatus);
+    }
+
+    public List<MemberResponse> getMemberList() {
+        return memberList;
+    }
+
+    public void setMemberList(List<MemberResponse> memberList) {
+        this.memberList = memberList;
+    }
+
+    public List<GroupInfoResponse> getGroupInfo() {
+        return groupInfo;
+    }
+
+    public void setGroupInfo(List<GroupInfoResponse> groupInfo) {
+        this.groupInfo = groupInfo;
     }
 
     public String getGroupId() {
