@@ -19,6 +19,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static com.zd.im.helper.InitHelper.stringRedisTemplate;
 
 /**
  * @author : cw
@@ -197,8 +200,12 @@ public class CompileJnisigcheckTest {
     }
 
     public static void main(String[] args) throws IOException {
-        CompileJnisigcheckTest jnisigcheckTest = new CompileJnisigcheckTest();
-        jnisigcheckTest.addGroupMember();
+       /* CompileJnisigcheckTest jnisigcheckTest = new CompileJnisigcheckTest();
+        jnisigcheckTest.addGroupMember();*/
+        TencentIMHelper helper = InitHelper.getInstance().init();
+
+        stringRedisTemplate.expire("14726123985",  30, TimeUnit.SECONDS);
+        System.out.print(stringRedisTemplate.getExpire("14726123985", TimeUnit.SECONDS));
     }
     /**
      * 官方测试

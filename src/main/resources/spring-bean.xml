@@ -30,7 +30,8 @@
 
     <bean id="tncentIMConfig" class="com.zd.im.entity.TencentIMConfig" >
             <property name="sdkAppid" value="${sdk_appid}"/>
-            <property name="jnisigcheckLibPath" value="${jnisigcheck__path}"/>
+            <property name="jnisigcheckLibWindowPath" value="${jnisigcheck_window_path}"/>
+            <property name="jnisigcheckLibLinuxPath" value="${jnisigcheck_linux_path}"/>
             <property name="defaultImAdminAccount" value="${defaultIm_admin_account}"/>
         </bean>
 

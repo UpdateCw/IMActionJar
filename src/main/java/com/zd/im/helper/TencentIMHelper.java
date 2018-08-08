@@ -39,15 +39,23 @@ public class TencentIMHelper {
     private ObjectMapper objectMapper;
 
 
-
     /**
      * 封装请求参数
      */
     private Joiner.MapJoiner joiner = Joiner.on("&").withKeyValueSeparator("=");
 
-    public TencentIMHelper(TencentIMConfig config,ObjectMapper objectMapper) {
+    public TencentIMHelper(TencentIMConfig config, ObjectMapper objectMapper) {
         this.config = config;
         this.objectMapper = objectMapper;
+    }
+
+    /**
+     * 如果是Linux系统，返回true，否则返回false
+     *
+     * @return
+     */
+    public static boolean isLinux() {
+        return System.getProperty("os.name").toLowerCase().indexOf("linux") >= 0;
     }
 
     /**
@@ -58,7 +66,9 @@ public class TencentIMHelper {
      */
     public String genUsersig(String identifier) {
         tls_sigcheck tlsSigcheck = new tls_sigcheck();
-        tlsSigcheck.loadJniLib(System.getProperty("user.dir") +config.getJnisigcheckLibPath());
+        String path = isLinux() == true ? config.getJnisigcheckLibLinuxPath() : config.getJnisigcheckLibWindowPath();
+
+        tlsSigcheck.loadJniLib(System.getProperty("user.dir") + path);
         int ret = tlsSigcheck.tls_gen_signature_ex2(config.getSdkAppid(), identifier, config.getPrivateKey());
         if (0 != ret) {
             log.error("ret: {}, errMsg:{}", ret, tlsSigcheck.getErrMsg());
@@ -67,8 +77,10 @@ public class TencentIMHelper {
             log.info("identifier '{}' take usersig is {}", identifier, usersig);
             return usersig;
         }
-        return  null;
+        return null;
     }
+
+
     /**
      * 导入账号
      *
@@ -79,9 +91,9 @@ public class TencentIMHelper {
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of(
                 "Identifier", user.getIdentifier(),
-                "Nick",user.getNick(),
-                "FaceUrl",user.getFaceUrl(),
-                "Type",user.getType());
+                "Nick", user.getNick(),
+                "FaceUrl", user.getFaceUrl(),
+                "Type", user.getType());
         IMActionResponse res = request(url + queryString, requestBody, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error("导入'{}'到腾讯云IM失败, response message is: {}", res);
@@ -102,16 +114,16 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("批量导入'{}'到腾讯云IM失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 单发单聊消息
      */
-    public  IMActionResponse sendMsg(Message message){
+    public IMActionResponse sendMsg(Message message) {
         String url = InitHelper.getInstance().imRequestAddress.getSendMsg();
         String queryString = joiner.join(getDefaultParams());
-        IMActionResponse res =  request(url + queryString,  message, IMActionResponse.class);
+        IMActionResponse res = request(url + queryString, message, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error("单聊消息发送失败, response message is: {}", res);
         }
@@ -121,21 +133,22 @@ public class TencentIMHelper {
     /**
      * 推送
      */
-   public IMActionResponse imPush(Message message){
-       String url = InitHelper.getInstance().imRequestAddress.getImPush();
-       String queryString = joiner.join(getDefaultParams());
-       IMActionResponse res =  request(url + queryString,  message, IMActionResponse.class);
-       if (!res.isSuccess()) {
-           log.error("推送消息发送失败, response message is: {}", res);
-       }
-       return res;
-   }
+    public IMActionResponse imPush(Message message) {
+        String url = InitHelper.getInstance().imRequestAddress.getImPush();
+        String queryString = joiner.join(getDefaultParams());
+        IMActionResponse res = request(url + queryString, message, IMActionResponse.class);
+        if (!res.isSuccess()) {
+            log.error("推送消息发送失败, response message is: {}", res);
+        }
+        return res;
+    }
 
     /**
      * 获取推送报告
+     *
      * @return
      */
-    public IMActionResponse imGetPushReport(String... taskIds){
+    public IMActionResponse imGetPushReport(String... taskIds) {
         String url = InitHelper.getInstance().imRequestAddress.getImGetPushReport();
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of("TaskIds", taskIds);
@@ -143,14 +156,15 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("获取推送报告失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 设置应用属性名称
+     *
      * @return
      */
-    public IMActionResponse imSetAttrName(Map<String,String> attrNames){
+    public IMActionResponse imSetAttrName(Map<String, String> attrNames) {
         String url = InitHelper.getInstance().imRequestAddress.getImSetAttrName();
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of("AttrNames", attrNames);
@@ -158,29 +172,31 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("设置应用属性名称失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 获取应用属性名称
+     *
      * @return
      */
-    public IMActionResponse imGetAttrName(){
+    public IMActionResponse imGetAttrName() {
         String url = InitHelper.getInstance().imRequestAddress.getImGetAttrName();
         String queryString = joiner.join(getDefaultParams());
         IMActionResponse res = request(url + queryString, null, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error("设置应用属性名称失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 获取用户属性
+     *
      * @param toAccounts
      * @return
      */
-    public  IMActionResponse  imGetAttr(String... toAccounts){
+    public IMActionResponse imGetAttr(String... toAccounts) {
         String url = InitHelper.getInstance().imRequestAddress.getImGetAttr();
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of("To_Account", toAccounts);
@@ -188,14 +204,15 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("获取用户属性失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 设置用户属性
+     *
      * @param userAttrs
      */
-    public  IMActionResponse  imSetAttr(List<UserAttrsResponse> userAttrs){
+    public IMActionResponse imSetAttr(List<UserAttrsResponse> userAttrs) {
         String url = InitHelper.getInstance().imRequestAddress.getImSetAttr();
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of("UserAttrs", userAttrs);
@@ -203,14 +220,15 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("设置用户属性失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 删除用户属性
+     *
      * @param userAttrs
      */
-    public  IMActionResponse  imRemoveAttr(List<UserAttrsRemoveResponse> userAttrs){
+    public IMActionResponse imRemoveAttr(List<UserAttrsRemoveResponse> userAttrs) {
         String url = InitHelper.getInstance().imRequestAddress.getImRemoveAttr();
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of("UserAttrs", userAttrs);
@@ -218,42 +236,45 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("删除用户属性失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 获取APP中的所有群组
+     *
      * @param groups
      */
-    public  IMActionResponse  groupOpenHttpSvc(GroupsQuery groups){
+    public IMActionResponse groupOpenHttpSvc(GroupsQuery groups) {
         String url = InitHelper.getInstance().imRequestAddress.getGroupOpenHttpSvc();
         String queryString = joiner.join(getDefaultParams());
         IMActionResponse res = request(url + queryString, groups, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error("获取APP中的所有群组失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 创建群组 公开群人数：2000
+     *
      * @param groups
      */
-    public  IMActionResponse  createGroup(Group groups){
+    public IMActionResponse createGroup(Group groups) {
         String url = InitHelper.getInstance().imRequestAddress.getCreateGroup();
         String queryString = joiner.join(getDefaultParams());
         IMActionResponse res = request(url + queryString, groups, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error("创建群组失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 获取群组详细资料
+     *
      * @param groups
      */
-    public  IMActionResponse  getGroupInfo(String... groups){
+    public IMActionResponse getGroupInfo(String... groups) {
         String url = InitHelper.getInstance().imRequestAddress.getGroupInfo();
         String queryString = joiner.join(getDefaultParams());
         Map<String, Object> requestBody = ImmutableMap.of("GroupIdList", groups);
@@ -261,51 +282,53 @@ public class TencentIMHelper {
         if (!res.isSuccess()) {
             log.error("获取群组详细资料失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 增加群组成员
+     *
      * @param groupMember
      */
-    public  IMActionResponse  addGroupMember(GroupMember groupMember){
+    public IMActionResponse addGroupMember(GroupMember groupMember) {
         String url = InitHelper.getInstance().imRequestAddress.getAddGroupMember();
         String queryString = joiner.join(getDefaultParams());
         IMActionResponse res = request(url + queryString, groupMember, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error(" 增加群组成员失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 删除群组成员
+     *
      * @param groupMember
      */
-    public  IMActionResponse  deleteGroupMember(GroupMember groupMember){
+    public IMActionResponse deleteGroupMember(GroupMember groupMember) {
         String url = InitHelper.getInstance().imRequestAddress.getDeleteGroupMember();
         String queryString = joiner.join(getDefaultParams());
         IMActionResponse res = request(url + queryString, groupMember, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error(" 删除群组成员失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
 
     /**
      * 解散群组成员
+     *
      * @param groupId
      */
-    public  IMActionResponse  destroyGroup(String groupId){
+    public IMActionResponse destroyGroup(String groupId) {
         String url = InitHelper.getInstance().imRequestAddress.getDestroyGroup();
         String queryString = joiner.join(getDefaultParams());
         IMActionResponse res = request(url + queryString, groupId, IMActionResponse.class);
         if (!res.isSuccess()) {
             log.error("解散群组成员失败, response message is: {}", res);
         }
-        return  res;
+        return res;
     }
-
 
 
     /**
@@ -342,6 +365,7 @@ public class TencentIMHelper {
 
     /**
      * http 请求service
+     *
      * @param url
      * @param params
      * @return
@@ -351,11 +375,11 @@ public class TencentIMHelper {
         try {
             json = HttpClientUtil.sendJsonData(url, JsonUtils.obj2Str(params));
             log.info("request url {}, the params is: {}", url, objectMapper.writeValueAsString(params));
-            log.info("request result is {}",json );
+            log.info("request result is {}", json);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return  json;
+        return json;
     }
 
 
@@ -379,27 +403,31 @@ public class TencentIMHelper {
         String usersig = _getIMAdminUsersig(identifier);
         if (StringUtils.isEmpty(usersig)) {
             usersig = genUsersig(identifier);
-               cacheIMAdminUsersig(identifier, usersig);
+            cacheIMAdminUsersig(identifier, usersig);
         }
         return usersig;
     }
 
     /**
      * 缓存identifier，usersig
+     *
      * @param identifier
      * @param usersig
      */
     private void cacheIMAdminUsersig(String identifier, String usersig) {
-        InitHelper.stringRedisTemplate.opsForValue().set(identifier,usersig);
+        InitHelper.stringRedisTemplate.opsForValue().set(identifier, usersig);
     }
+
     /**
      * 缓存中取账号usersig
+     *
      * @param identifier
      * @return
      */
     private String _getIMAdminUsersig(String identifier) {
-        return  InitHelper.stringRedisTemplate.opsForValue().get(identifier);
+        return InitHelper.stringRedisTemplate.opsForValue().get(identifier);
     }
+
     /**
      * 删除缓存中的账号 usersig
      */

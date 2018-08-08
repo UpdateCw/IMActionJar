@@ -15,7 +15,13 @@ public class TencentIMConfig {
     /**
      * Jnisigcheck 包地址
      */
-    private String jnisigcheckLibPath;
+    private String jnisigcheckLibWindowPath;
+
+    /**
+     * Jnisigcheck 包地址
+     */
+    private String jnisigcheckLibLinuxPath;
+
 
     /**
      * 私有key地址
@@ -35,12 +41,30 @@ public class TencentIMConfig {
     public TencentIMConfig() {
     }
 
-    public TencentIMConfig(String sdkAppid, String jnisigcheckLibPath, String privateKeyPath, String privateKey, String defaultImAdminAccount) {
+    public TencentIMConfig(String sdkAppid, String jnisigcheckLibWindowPath,String jnisigcheckLibLinuxPath, String privateKeyPath, String privateKey, String defaultImAdminAccount) {
         this.sdkAppid = sdkAppid;
-        this.jnisigcheckLibPath = jnisigcheckLibPath;
+        this.jnisigcheckLibWindowPath = jnisigcheckLibWindowPath;
+        this.jnisigcheckLibLinuxPath = jnisigcheckLibLinuxPath;
         this.privateKeyPath = privateKeyPath;
         this.privateKey = privateKey;
         this.defaultImAdminAccount = defaultImAdminAccount;
+    }
+
+
+    public String getJnisigcheckLibWindowPath() {
+        return jnisigcheckLibWindowPath;
+    }
+
+    public void setJnisigcheckLibWindowPath(String jnisigcheckLibWindowPath) {
+        this.jnisigcheckLibWindowPath = jnisigcheckLibWindowPath;
+    }
+
+    public String getJnisigcheckLibLinuxPath() {
+        return jnisigcheckLibLinuxPath;
+    }
+
+    public void setJnisigcheckLibLinuxPath(String jnisigcheckLibLinuxPath) {
+        this.jnisigcheckLibLinuxPath = jnisigcheckLibLinuxPath;
     }
 
     public String getSdkAppid() {
@@ -51,13 +75,6 @@ public class TencentIMConfig {
         this.sdkAppid = sdkAppid;
     }
 
-    public String getJnisigcheckLibPath() {
-        return jnisigcheckLibPath;
-    }
-
-    public void setJnisigcheckLibPath(String jnisigcheckLibPath) {
-        this.jnisigcheckLibPath = jnisigcheckLibPath;
-    }
 
     public String getPrivateKeyPath() {
         return privateKeyPath;
